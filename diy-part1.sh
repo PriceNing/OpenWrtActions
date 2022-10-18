@@ -11,12 +11,12 @@
 #
 
 cat >> feeds.conf.default <<EOF
-# src-git kenzo https://github.com/kenzok8/openwrt-packages
-# src-git passwall https://github.com/xiaorouji/openwrt-passwall
+src-git kenzo https://github.com/kenzok8/openwrt-packages
+src-git passwall https://github.com/xiaorouji/openwrt-passwall
 src-git nas https://github.com/linkease/nas-packages.git
 EOF
-
 ./scripts/feeds update -a && ./scripts/feeds install -a
+
 git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
 
